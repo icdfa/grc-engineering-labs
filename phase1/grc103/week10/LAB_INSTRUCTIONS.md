@@ -1,86 +1,486 @@
-# Lab 10: GRC103 Module
+# Lab 10: Risk Assessment Methodologies
 
 **Course:** GRC103 - Risk Assessment & Management  
 **Week:** 10  
 **Duration:** 5 days  
 **Level:** Intermediate  
-**Prerequisites:** GRC101-102 completion
+**Prerequisites:** GRC102 completion
 
 ## Lab Overview
 
-This lab focuses on risk assessment and management methodologies. Participants will perform comprehensive risk assessments, create risk registers, and develop treatment strategies.
+This lab covers advanced risk assessment methodologies including FAIR, OCTAVE, and NIST 800-30. Participants will apply multiple methodologies and compare results.
 
 ## Learning Objectives
 
 Upon completion of this lab, you will be able to:
 
-- Conduct comprehensive risk assessments
-- Calculate risk scores using qualitative and quantitative methods
-- Create and maintain risk registers
-- Develop risk treatment strategies
-- Report risk findings to management
+- Apply FAIR risk assessment methodology
+- Conduct OCTAVE risk assessments
+- Use NIST SP 800-30 for risk assessment
+- Compare different risk methodologies
+- Select appropriate methodology for scenarios
 
 ## Required Resources
 
-- Risk assessment dataset (datasets/risk_assessment_data.xlsx)
-- Risk register template (templates/risk_register_template.xlsx)
-- Threat modeling tools and templates
-- Lab report template
+- Linux system (Ubuntu 20.04 or later recommended)
+- Terminal/SSH access
+- Text editor (nano, vim, or VS Code)
+- Lab report template (provided)
+- Excel or LibreOffice Calc for data analysis
+- Access to framework documentation (provided in resources/)
+- Sample datasets (provided in datasets/)
 
 ## Lab Tasks
 
-### Task 1: Risk Identification and Analysis
+### Task 1: FAIR Methodology Application (Day 1)
 
-Identify and analyze organizational risks:
-- Asset identification
-- Threat assessment
-- Vulnerability analysis
-- Risk scoring
-- Risk prioritization
+**Objective:** Apply Factor Analysis of Information Risk (FAIR) methodology
 
-### Task 2: Risk Assessment Methods
+**Instructions:**
 
-Apply both qualitative and quantitative methods:
-- Qualitative risk assessment (heatmaps, matrices)
-- Quantitative risk analysis (ALE, SLE, ARO)
-- Risk scoring and ranking
-- Comparative analysis
+1. Create a working directory for this task:
+   ```bash
+   mkdir -p ~/grc-lab-week10/task1
+   cd ~/grc-lab-week10/task1
+   ```
 
-### Task 3: Risk Treatment and Monitoring
+2. Review the task requirements and objectives carefully
 
-Develop risk treatment strategies:
-- Risk mitigation planning
-- Risk acceptance documentation
-- Risk monitoring procedures
-- Treatment effectiveness measurement
+3. Follow the step-by-step procedures below:
+
+   **Step-by-Step Procedure:**
+   
+   a. Review task requirements and objectives carefully
+   
+   b. Gather necessary resources and materials:
+   ```bash
+   # List available resources
+   ls ../../resources/
+   ls ../../datasets/
+   ls ../../templates/
+   ```
+   
+   c. Create working documents:
+   ```bash
+   cat > task1_work.md << 'EOF'
+   # Task 1 - FAIR Methodology Application
+   
+   ## Objective
+   [Restate the objective]
+   
+   ## Approach
+   [Describe your approach]
+   
+   ## Work Performed
+   [Document your work step-by-step]
+   
+   ## Findings
+   [Document what you discovered]
+   
+   ## Conclusions
+   [State your conclusions]
+   
+   ## Recommendations
+   [Provide recommendations]
+   EOF
+   ```
+   
+   d. Complete the required work systematically:
+   - Follow best practices
+   - Document your process
+   - Validate your work
+   - Seek clarification if needed
+   
+   e. Review and verify your work:
+   - Check against requirements
+   - Ensure completeness
+   - Verify accuracy
+   - Proofread documentation
+   
+   f. Prepare final deliverables:
+   - Organize all files
+   - Create summary documentation
+   - Include all required elements
+   
+
+4. Document your findings and create deliverables
+
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 2: OCTAVE Assessment (Day 2)
+
+**Objective:** Conduct Operationally Critical Threat, Asset, and Vulnerability Evaluation
+
+**Instructions:**
+
+1. Create a working directory for this task:
+   ```bash
+   mkdir -p ~/grc-lab-week10/task2
+   cd ~/grc-lab-week10/task2
+   ```
+
+2. Review the task requirements and objectives carefully
+
+3. Follow the step-by-step procedures below:
+
+   **Step-by-Step Procedure:**
+   
+   a. Gather required data and information:
+   ```bash
+   # Copy relevant datasets
+   cp ../../datasets/*.xlsx ./
+   ls -la
+   ```
+   
+   b. Create analysis workspace:
+   ```bash
+   mkdir -p analysis_results
+   mkdir -p supporting_docs
+   ```
+   
+   c. Conduct systematic analysis:
+   - Review all available data
+   - Apply appropriate analytical methods
+   - Use quantitative and qualitative techniques
+   - Document assumptions and limitations
+   
+   d. Calculate relevant metrics:
+   ```bash
+   # Example: Create calculation spreadsheet
+   cat > calculations.md << 'EOF'
+   # Analysis Calculations - Task 2
+   
+   ## Methodology
+   [Describe analytical approach]
+   
+   ## Data Sources
+   [List data sources used]
+   
+   ## Calculations
+   [Show formulas and calculations]
+   
+   ## Results
+   [Present findings]
+   
+   ## Interpretation
+   [Explain what results mean]
+   EOF
+   ```
+   
+   e. Create visualizations if applicable:
+   - Charts showing trends or comparisons
+   - Tables summarizing key data
+   - Diagrams illustrating relationships
+   
+   f. Develop findings and recommendations:
+   - Synthesize analysis results
+   - Draw evidence-based conclusions
+   - Provide actionable recommendations
+   
+   g. Document complete analysis process and results
+   
+
+4. Document your findings and create deliverables
+
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 3: NIST 800-30 Risk Assessment (Day 3)
+
+**Objective:** Perform risk assessment using NIST SP 800-30 guidance
+
+**Instructions:**
+
+1. Create a working directory for this task:
+   ```bash
+   mkdir -p ~/grc-lab-week10/task3
+   cd ~/grc-lab-week10/task3
+   ```
+
+2. Review the task requirements and objectives carefully
+
+3. Follow the step-by-step procedures below:
+
+   **Step-by-Step Procedure:**
+   
+   a. Open the risk assessment template:
+   ```bash
+   cp ../../datasets/risk_assessment_data.xlsx ./risk_analysis.xlsx
+   # Or use LibreOffice: libreoffice --calc risk_analysis.xlsx
+   ```
+   
+   b. Identify and document risks:
+   - Review organizational scenarios
+   - Identify potential threats and vulnerabilities
+   - Document risk descriptions
+   
+   c. Assess risk likelihood and impact:
+   - Use provided likelihood scale (1-5)
+   - Use provided impact scale (1-5)
+   - Calculate risk scores (Likelihood × Impact)
+   
+   d. Prioritize risks:
+   - Rank risks by score
+   - Categorize as Critical, High, Medium, Low
+   - Document prioritization rationale
+   
+   e. Create risk register:
+   ```bash
+   cat > risk_register.md << 'EOF'
+   # Risk Register - Task 3
+   
+   | Risk ID | Risk Description | Likelihood | Impact | Score | Priority | Owner |
+   |---------|------------------|------------|--------|-------|----------|-------|
+   | R001    | [Description]    | [1-5]      | [1-5]  | [Score]| [Level] | [Name]|
+   
+   EOF
+   ```
+   
+   f. Analyze and document findings in your lab report
+   
+
+4. Document your findings and create deliverables
+
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 4: Methodology Comparison (Day 4)
+
+**Objective:** Compare results from different risk assessment methodologies
+
+**Instructions:**
+
+1. Create a working directory for this task:
+   ```bash
+   mkdir -p ~/grc-lab-week10/task4
+   cd ~/grc-lab-week10/task4
+   ```
+
+2. Review the task requirements and objectives carefully
+
+3. Follow the step-by-step procedures below:
+
+   **Step-by-Step Procedure:**
+   
+   a. Review task requirements and objectives carefully
+   
+   b. Gather necessary resources and materials:
+   ```bash
+   # List available resources
+   ls ../../resources/
+   ls ../../datasets/
+   ls ../../templates/
+   ```
+   
+   c. Create working documents:
+   ```bash
+   cat > task4_work.md << 'EOF'
+   # Task 4 - Methodology Comparison
+   
+   ## Objective
+   [Restate the objective]
+   
+   ## Approach
+   [Describe your approach]
+   
+   ## Work Performed
+   [Document your work step-by-step]
+   
+   ## Findings
+   [Document what you discovered]
+   
+   ## Conclusions
+   [State your conclusions]
+   
+   ## Recommendations
+   [Provide recommendations]
+   EOF
+   ```
+   
+   d. Complete the required work systematically:
+   - Follow best practices
+   - Document your process
+   - Validate your work
+   - Seek clarification if needed
+   
+   e. Review and verify your work:
+   - Check against requirements
+   - Ensure completeness
+   - Verify accuracy
+   - Proofread documentation
+   
+   f. Prepare final deliverables:
+   - Organize all files
+   - Create summary documentation
+   - Include all required elements
+   
+
+4. Document your findings and create deliverables
+
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 5: Methodology Selection Criteria (Day 5)
+
+**Objective:** Develop criteria for selecting appropriate risk methodology
+
+**Instructions:**
+
+1. Create a working directory for this task:
+   ```bash
+   mkdir -p ~/grc-lab-week10/task5
+   cd ~/grc-lab-week10/task5
+   ```
+
+2. Review the task requirements and objectives carefully
+
+3. Follow the step-by-step procedures below:
+
+   **Step-by-Step Procedure:**
+   
+   a. Review task requirements and objectives carefully
+   
+   b. Gather necessary resources and materials:
+   ```bash
+   # List available resources
+   ls ../../resources/
+   ls ../../datasets/
+   ls ../../templates/
+   ```
+   
+   c. Create working documents:
+   ```bash
+   cat > task5_work.md << 'EOF'
+   # Task 5 - Methodology Selection Criteria
+   
+   ## Objective
+   [Restate the objective]
+   
+   ## Approach
+   [Describe your approach]
+   
+   ## Work Performed
+   [Document your work step-by-step]
+   
+   ## Findings
+   [Document what you discovered]
+   
+   ## Conclusions
+   [State your conclusions]
+   
+   ## Recommendations
+   [Provide recommendations]
+   EOF
+   ```
+   
+   d. Complete the required work systematically:
+   - Follow best practices
+   - Document your process
+   - Validate your work
+   - Seek clarification if needed
+   
+   e. Review and verify your work:
+   - Check against requirements
+   - Ensure completeness
+   - Verify accuracy
+   - Proofread documentation
+   
+   f. Prepare final deliverables:
+   - Organize all files
+   - Create summary documentation
+   - Include all required elements
+   
+
+4. Document your findings and create deliverables
+
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
 
 ## Assessment Criteria
 
 Your lab will be assessed on:
 
-- Risk identification completeness (20%)
-- Assessment methodology accuracy (25%)
-- Risk register quality (25%)
-- Treatment strategy appropriateness (20%)
-- Documentation quality (10%)
+| Criterion | Weight | Description |
+|-----------|--------|-------------|
+| Technical Accuracy | 25% | Correctness of technical work and analysis |
+| Completeness | 20% | All tasks completed with required deliverables |
+| Documentation Quality | 20% | Clear, professional documentation and reporting |
+| Critical Thinking | 20% | Depth of analysis and insights provided |
+| Professional Presentation | 15% | Organization, formatting, and clarity |
 
 ## Submission Requirements
 
-Submit the following by Friday 11:59 PM:
+1. **Lab Report (PDF or Markdown)**
+   - Title page with lab number, date, and name
+   - Executive summary
+   - Detailed findings for each task
+   - Screenshots and evidence
+   - Analysis and conclusions
+   - Recommendations
 
-1. Lab Report (PDF or Markdown)
-2. Risk assessment documentation
-3. Risk register (spreadsheet)
-4. Treatment strategies
-5. Monitoring plan
+2. **Supporting Files**
+   - All scripts, documents, and analysis files created
+   - Excel/CSV files with data analysis
+   - Any configuration files or templates developed
+   - Screenshots demonstrating task completion
+
+3. **File Organization**
+   - Create submission folder: `Week_{lab['week']:02d}_{lab['course']}_[YourName]`
+   - Include all task directories
+   - Use professional naming conventions
+   - Include README with file descriptions
+
+## Submission Deadline
+
+Friday, 11:59 PM (End of Week {lab['week']})
 
 ## Resources
 
-- Risk Assessment Data: datasets/risk_assessment_data.xlsx
-- Risk Register Template: templates/risk_register_template.xlsx
-- Frameworks: resources/frameworks/
+- Course materials and framework documentation in resources/
+- Sample datasets in datasets/
+- Lab templates in templates/
+- Additional reading materials provided in course portal
+
+## Common Issues and Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Missing files or datasets | Check datasets/ directory, download if necessary |
+| Permission issues | Ensure proper file permissions, use sudo if required |
+| Software not installed | Install required packages using apt or pip |
+| Unclear requirements | Review task objectives, consult documentation |
+
+## Tips for Success
+
+1. Read all task instructions before starting
+2. Take detailed notes as you work
+3. Document your thought process and decisions
+4. Create backups of your work regularly
+5. Test your work thoroughly before submission
+6. Review assessment criteria before finalizing
+7. Proofread all documentation
+8. Organize files logically
+9. Include all required deliverables
+10. Submit before the deadline
+
+## Next Steps
+
+Upon completion of this lab:
+
+1. Review instructor feedback
+2. Prepare for Week {lab['week'] + 1} lab
+3. Continue building your GRC knowledge
+4. Practice skills learned in this lab
+5. Connect concepts across different weeks
 
 ---
 
 **Lab Created:** December 2025  
+**Last Updated:** December 2025  
 **Version:** 1.0

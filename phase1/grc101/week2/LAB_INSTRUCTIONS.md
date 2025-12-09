@@ -8,494 +8,397 @@
 
 ## Lab Overview
 
-This lab introduces bash scripting for compliance automation. Participants will write scripts to check system configurations, detect unauthorized users, and generate compliance reports. These skills are essential for automating compliance checks and security monitoring.
+This lab introduces bash scripting for compliance automation. Participants will write scripts to check system configurations, detect unauthorized users, and generate compliance reports.
 
 ## Learning Objectives
 
 Upon completion of this lab, you will be able to:
 
-- Write bash scripts for compliance checks
+- Write bash scripts for compliance automation
 - Automate system configuration verification
-- Detect unauthorized user accounts
+- Detect unauthorized user accounts and privilege escalation
 - Generate automated compliance reports
-- Understand scripting best practices for GRC operations
+- Implement error handling and logging in scripts
 
 ## Required Resources
 
-- Linux system with bash shell
+- Linux system (Ubuntu 20.04 or later recommended)
+- Terminal/SSH access
 - Text editor (nano, vim, or VS Code)
-- Lab templates and sample scripts
-- System access for testing scripts
-- Lab report template
+- Lab report template (provided)
+- Excel or LibreOffice Calc for data analysis
+- Access to framework documentation (provided in resources/)
+- Sample datasets (provided in datasets/)
 
 ## Lab Tasks
 
 ### Task 1: Bash Scripting Fundamentals (Day 1)
 
-**Objective:** Learn bash scripting basics and create your first compliance script.
+**Objective:** Learn bash scripting basics and create your first compliance automation script
 
 **Instructions:**
 
-1. Create a working directory:
+1. Create a working directory for this task:
    ```bash
-   mkdir -p ~/grc-lab-week2/scripts
-   cd ~/grc-lab-week2/scripts
+   mkdir -p ~/grc-lab-week2/task1
+   cd ~/grc-lab-week2/task1
    ```
 
-2. Create a simple system information script:
+2. Review the task requirements and objectives carefully
+
+3. Follow the step-by-step procedures below:
+
+   **Step-by-Step Procedure:**
+   
+   a. Create a new script file:
    ```bash
-   cat > system_info.sh << 'EOF'
+   nano task1_script.sh
+   ```
+   
+   b. Add the script header and shebang:
+   ```bash
    #!/bin/bash
-   
-   # System Information Script for Compliance
-   # Purpose: Gather basic system information
-   # Author: GRC Engineer
-   # Date: $(date)
-   
-   echo "======================================"
-   echo "SYSTEM INFORMATION REPORT"
-   echo "======================================"
-   echo ""
-   echo "Hostname: $(hostname)"
-   echo "Kernel: $(uname -r)"
-   echo "OS: $(cat /etc/os-release | grep PRETTY_NAME)"
-   echo "Current Date/Time: $(date)"
-   echo ""
-   echo "======================================"
-   echo "USER ACCOUNTS"
-   echo "======================================"
-   cat /etc/passwd | cut -d: -f1,3,6 | head -10
-   echo ""
-   echo "======================================"
-   echo "DISK USAGE"
-   echo "======================================"
-   df -h | head -5
-   echo ""
-   echo "Report generated: $(date)" > system_info_report.txt
-   
-   EOF
-   
-   chmod +x system_info.sh
-   ./system_info.sh
+   # Script: task1_script.sh
+   # Purpose: [Describe purpose]
+   # Author: [Your name]
+   # Date: $(date +%Y-%m-%d)
    ```
-
-3. Understand script structure:
-   - Shebang line (#!/bin/bash)
-   - Comments
-   - Variable assignment
-   - Command execution
-   - Output redirection
-
-4. Create a script with user input:
+   
+   c. Implement the required functionality with proper error handling
+   
+   d. Make the script executable:
    ```bash
-   cat > user_check.sh << 'EOF'
-   #!/bin/bash
-   
-   # User Account Check Script
-   echo "Enter username to check: "
-   read username
-   
-   if grep -q "^$username:" /etc/passwd; then
-       echo "User $username exists"
-       grep "^$username:" /etc/passwd
-   else
-       echo "User $username does not exist"
-   fi
-   
-   EOF
-   
-   chmod +x user_check.sh
+   chmod +x task1_script.sh
    ```
+   
+   e. Test the script:
+   ```bash
+   ./task1_script.sh
+   ```
+   
+   f. Document the script with comments explaining each section
+   
+   g. Create a README explaining script usage:
+   ```bash
+   cat > README.md << 'EOF'
+   # Task 1 Script Documentation
+   
+   ## Purpose
+   [Describe what the script does]
+   
+   ## Usage
+   ```
+   ./task1_script.sh [options]
+   ```
+   
+   ## Requirements
+   - List any prerequisites
+   - Required permissions
+   - Dependencies
+   
+   ## Output
+   Describe expected output and where files are saved
+   EOF
+   ```
+   
 
-**Deliverable:** Two working bash scripts with documentation
+4. Document your findings and create deliverables
 
-### Task 2: Password Policy Compliance Script (Day 2)
+5. Review your work for completeness and accuracy
 
-**Objective:** Create a script to verify password policy compliance.
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 2: User Account Compliance Script (Day 2)
+
+**Objective:** Create a script to detect unauthorized user accounts and verify account compliance
 
 **Instructions:**
 
-1. Create a comprehensive password policy checker:
+1. Create a working directory for this task:
    ```bash
-   cat > password_policy_check.sh << 'EOF'
-   #!/bin/bash
-   
-   # Password Policy Compliance Checker
-   # Purpose: Verify system password policy settings
-   # Date: $(date)
-   
-   echo "======================================"
-   echo "PASSWORD POLICY COMPLIANCE CHECK"
-   echo "======================================"
-   echo "Report Date: $(date)" > password_policy_report.txt
-   echo "" >> password_policy_report.txt
-   
-   # Check password aging settings
-   echo "PASSWORD AGING SETTINGS:" >> password_policy_report.txt
-   echo "========================" >> password_policy_report.txt
-   
-   # Check /etc/login.defs for password settings
-   echo "Checking /etc/login.defs..." >> password_policy_report.txt
-   grep -E "PASS_MAX_DAYS|PASS_MIN_DAYS|PASS_WARN_AGE" /etc/login.defs >> password_policy_report.txt 2>&1
-   echo "" >> password_policy_report.txt
-   
-   # Check user password settings
-   echo "USER PASSWORD SETTINGS:" >> password_policy_report.txt
-   echo "======================" >> password_policy_report.txt
-   echo "Checking user accounts..." >> password_policy_report.txt
-   
-   for user in $(cut -f1 -d: /etc/passwd); do
-       chage -l $user 2>/dev/null | grep -E "Maximum|Minimum|Warning" >> password_policy_report.txt
-   done
-   
-   # Check for users with no password expiration
-   echo "" >> password_policy_report.txt
-   echo "USERS WITH NO PASSWORD EXPIRATION:" >> password_policy_report.txt
-   echo "==================================" >> password_policy_report.txt
-   for user in $(cut -f1 -d: /etc/passwd); do
-       max_days=$(chage -l $user 2>/dev/null | grep "Maximum" | awk -F: '{print $2}' | xargs)
-       if [ "$max_days" = "never" ] || [ "$max_days" = "-1" ]; then
-           echo "WARNING: User $user has no password expiration" >> password_policy_report.txt
-       fi
-   done
-   
-   # Check password history
-   echo "" >> password_policy_report.txt
-   echo "PASSWORD HISTORY SETTINGS:" >> password_policy_report.txt
-   echo "==========================" >> password_policy_report.txt
-   grep -i "remember" /etc/pam.d/* 2>/dev/null >> password_policy_report.txt || echo "No password history configured" >> password_policy_report.txt
-   
-   # Summary
-   echo "" >> password_policy_report.txt
-   echo "COMPLIANCE ASSESSMENT:" >> password_policy_report.txt
-   echo "=====================" >> password_policy_report.txt
-   echo "Review the above settings against your organization's password policy." >> password_policy_report.txt
-   echo "Ensure:" >> password_policy_report.txt
-   echo "- Maximum password age is set (typically 90 days)" >> password_policy_report.txt
-   echo "- Minimum password age is set (typically 1 day)" >> password_policy_report.txt
-   echo "- Password warning age is set (typically 14 days)" >> password_policy_report.txt
-   echo "- Password history is enforced (typically 5-24 previous passwords)" >> password_policy_report.txt
-   
-   # Display report
-   cat password_policy_report.txt
-   
-   EOF
-   
-   chmod +x password_policy_check.sh
-   ./password_policy_check.sh
+   mkdir -p ~/grc-lab-week2/task2
+   cd ~/grc-lab-week2/task2
    ```
 
-2. Test the script and review output
+2. Review the task requirements and objectives carefully
 
-3. Document the script:
-   - Purpose and objectives
-   - Parameters and options
-   - Output format
-   - Compliance checks performed
+3. Follow the step-by-step procedures below:
 
-**Deliverable:** Working password policy checker script with output report
+   **Step-by-Step Procedure:**
+   
+   a. Create a new script file:
+   ```bash
+   nano task2_script.sh
+   ```
+   
+   b. Add the script header and shebang:
+   ```bash
+   #!/bin/bash
+   # Script: task2_script.sh
+   # Purpose: [Describe purpose]
+   # Author: [Your name]
+   # Date: $(date +%Y-%m-%d)
+   ```
+   
+   c. Implement the required functionality with proper error handling
+   
+   d. Make the script executable:
+   ```bash
+   chmod +x task2_script.sh
+   ```
+   
+   e. Test the script:
+   ```bash
+   ./task2_script.sh
+   ```
+   
+   f. Document the script with comments explaining each section
+   
+   g. Create a README explaining script usage:
+   ```bash
+   cat > README.md << 'EOF'
+   # Task 2 Script Documentation
+   
+   ## Purpose
+   [Describe what the script does]
+   
+   ## Usage
+   ```
+   ./task2_script.sh [options]
+   ```
+   
+   ## Requirements
+   - List any prerequisites
+   - Required permissions
+   - Dependencies
+   
+   ## Output
+   Describe expected output and where files are saved
+   EOF
+   ```
+   
 
-### Task 3: Unauthorized User Detection Script (Day 3)
+4. Document your findings and create deliverables
 
-**Objective:** Create a script to identify unauthorized user accounts.
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 3: System Configuration Compliance (Day 3)
+
+**Objective:** Create scripts to verify system configuration against security baselines
 
 **Instructions:**
 
-1. Create an unauthorized user detection script:
+1. Create a working directory for this task:
    ```bash
-   cat > unauthorized_user_check.sh << 'EOF'
-   #!/bin/bash
-   
-   # Unauthorized User Detection Script
-   # Purpose: Identify potentially unauthorized user accounts
-   # Date: $(date)
-   
-   echo "======================================"
-   echo "UNAUTHORIZED USER DETECTION REPORT"
-   echo "======================================"
-   echo "Report Date: $(date)" > unauthorized_users_report.txt
-   echo "" >> unauthorized_users_report.txt
-   
-   # Define authorized system users (customize for your environment)
-   AUTHORIZED_USERS="root daemon bin sys sync games man lp mail news uucp proxy www-data backup list irc gnats nobody"
-   
-   echo "SYSTEM USER ACCOUNTS:" >> unauthorized_users_report.txt
-   echo "====================" >> unauthorized_users_report.txt
-   
-   # Get all users with UID >= 1000 (non-system users)
-   echo "Non-system user accounts (UID >= 1000):" >> unauthorized_users_report.txt
-   awk -F: '$3 >= 1000 {print $1 " (UID: " $3 ")"}' /etc/passwd >> unauthorized_users_report.txt
-   echo "" >> unauthorized_users_report.txt
-   
-   # Check for users with UID 0 (root privileges)
-   echo "ACCOUNTS WITH ROOT PRIVILEGES (UID 0):" >> unauthorized_users_report.txt
-   echo "======================================" >> unauthorized_users_report.txt
-   awk -F: '$3 == 0 {print $1}' /etc/passwd >> unauthorized_users_report.txt
-   echo "" >> unauthorized_users_report.txt
-   
-   # Check for users with empty passwords
-   echo "ACCOUNTS WITH EMPTY PASSWORDS:" >> unauthorized_users_report.txt
-   echo "=============================" >> unauthorized_users_report.txt
-   awk -F: '($2 == "" || $2 == "!") {print $1}' /etc/shadow 2>/dev/null >> unauthorized_users_report.txt || echo "Cannot read /etc/shadow (requires sudo)" >> unauthorized_users_report.txt
-   echo "" >> unauthorized_users_report.txt
-   
-   # Check for users with no login shell
-   echo "ACCOUNTS WITH SYSTEM SHELLS:" >> unauthorized_users_report.txt
-   echo "============================" >> unauthorized_users_report.txt
-   awk -F: '($7 == "/bin/false" || $7 == "/usr/sbin/nologin" || $7 == "/bin/nologin") {print $1 " (" $7 ")"}' /etc/passwd >> unauthorized_users_report.txt
-   echo "" >> unauthorized_users_report.txt
-   
-   # Check sudo access
-   echo "USERS WITH SUDO ACCESS:" >> unauthorized_users_report.txt
-   echo "======================" >> unauthorized_users_report.txt
-   grep -E "^[^#].*\(ALL\)" /etc/sudoers 2>/dev/null >> unauthorized_users_report.txt || echo "Cannot read /etc/sudoers" >> unauthorized_users_report.txt
-   echo "" >> unauthorized_users_report.txt
-   
-   # Recommendations
-   echo "RECOMMENDATIONS:" >> unauthorized_users_report.txt
-   echo "================" >> unauthorized_users_report.txt
-   echo "1. Review all non-system user accounts (UID >= 1000)" >> unauthorized_users_report.txt
-   echo "2. Verify accounts with root privileges" >> unauthorized_users_report.txt
-   echo "3. Disable or remove accounts with empty passwords" >> unauthorized_users_report.txt
-   echo "4. Review sudo access and limit to necessary users" >> unauthorized_users_report.txt
-   echo "5. Document all authorized user accounts" >> unauthorized_users_report.txt
-   
-   # Display report
-   cat unauthorized_users_report.txt
-   
-   EOF
-   
-   chmod +x unauthorized_user_check.sh
-   ./unauthorized_user_check.sh
+   mkdir -p ~/grc-lab-week2/task3
+   cd ~/grc-lab-week2/task3
    ```
 
-2. Test the script and analyze results
+2. Review the task requirements and objectives carefully
 
-3. Identify potential security issues:
-   - Unauthorized user accounts
-   - Accounts with excessive privileges
-   - Accounts with weak security settings
+3. Follow the step-by-step procedures below:
 
-**Deliverable:** Unauthorized user detection script with analysis report
+   **Step-by-Step Procedure:**
+   
+   a. Review framework documentation:
+   ```bash
+   cat ../../resources/framework_guides/[relevant_framework].md
+   ```
+   
+   b. Create framework mapping document:
+   ```bash
+   cat > framework_mapping.md << 'EOF'
+   # Framework Mapping - Task 3
+   
+   ## Framework Overview
+   [Name and describe the framework]
+   
+   ## Control Mapping
+   
+   | Control ID | Control Description | Implementation Status | Evidence | Gap |
+   |------------|---------------------|----------------------|----------|-----|
+   | [ID]       | [Description]       | [Status]             | [Evidence]| [Gap]|
+   
+   ## Gap Analysis Summary
+   [Summarize identified gaps]
+   
+   ## Recommendations
+   [List recommendations for addressing gaps]
+   EOF
+   ```
+   
+   c. Analyze framework requirements:
+   - Review each control or requirement
+   - Assess current implementation status
+   - Identify gaps and deficiencies
+   - Document evidence of compliance
+   
+   d. Perform gap analysis:
+   - Compare current state to framework requirements
+   - Prioritize gaps by risk and impact
+   - Estimate effort to close gaps
+   
+   e. Develop remediation roadmap:
+   - Create timeline for gap closure
+   - Assign responsibilities
+   - Estimate resources needed
+   
+   f. Document findings and recommendations
+   
 
-### Task 4: Compliance Report Generator (Day 4)
+4. Document your findings and create deliverables
 
-**Objective:** Create a comprehensive compliance report generator script.
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 4: Automated Compliance Reporting (Day 4)
+
+**Objective:** Create automated compliance reports with proper formatting and documentation
 
 **Instructions:**
 
-1. Create a master compliance report script:
+1. Create a working directory for this task:
    ```bash
-   cat > compliance_report_generator.sh << 'EOF'
-   #!/bin/bash
-   
-   # Compliance Report Generator
-   # Purpose: Generate comprehensive compliance report
-   # Date: $(date)
-   
-   REPORT_FILE="compliance_report_$(date +%Y%m%d_%H%M%S).txt"
-   
-   echo "======================================"
-   echo "SYSTEM COMPLIANCE REPORT"
-   echo "======================================"
-   echo "Report Generated: $(date)" > $REPORT_FILE
-   echo "System: $(hostname)" >> $REPORT_FILE
-   echo "Kernel: $(uname -r)" >> $REPORT_FILE
-   echo "" >> $REPORT_FILE
-   
-   # Section 1: System Information
-   echo "1. SYSTEM INFORMATION" >> $REPORT_FILE
-   echo "=====================" >> $REPORT_FILE
-   echo "Hostname: $(hostname)" >> $REPORT_FILE
-   echo "OS: $(cat /etc/os-release | grep PRETTY_NAME)" >> $REPORT_FILE
-   echo "Kernel: $(uname -r)" >> $REPORT_FILE
-   echo "Uptime: $(uptime)" >> $REPORT_FILE
-   echo "" >> $REPORT_FILE
-   
-   # Section 2: User Accounts
-   echo "2. USER ACCOUNTS" >> $REPORT_FILE
-   echo "================" >> $REPORT_FILE
-   echo "Total user accounts: $(wc -l < /etc/passwd)" >> $REPORT_FILE
-   echo "Active user accounts:" >> $REPORT_FILE
-   awk -F: '($7 != "/bin/false" && $7 != "/usr/sbin/nologin") {print "  - " $1}' /etc/passwd >> $REPORT_FILE
-   echo "" >> $REPORT_FILE
-   
-   # Section 3: File System Permissions
-   echo "3. CRITICAL FILE PERMISSIONS" >> $REPORT_FILE
-   echo "============================" >> $REPORT_FILE
-   echo "/etc/passwd: $(ls -l /etc/passwd | awk '{print $1, $3, $4}')" >> $REPORT_FILE
-   echo "/etc/shadow: $(ls -l /etc/shadow | awk '{print $1, $3, $4}')" >> $REPORT_FILE
-   echo "/etc/sudoers: $(ls -l /etc/sudoers | awk '{print $1, $3, $4}')" >> $REPORT_FILE
-   echo "" >> $REPORT_FILE
-   
-   # Section 4: Password Policy
-   echo "4. PASSWORD POLICY" >> $REPORT_FILE
-   echo "==================" >> $REPORT_FILE
-   grep -E "PASS_MAX_DAYS|PASS_MIN_DAYS|PASS_WARN_AGE" /etc/login.defs >> $REPORT_FILE
-   echo "" >> $REPORT_FILE
-   
-   # Section 5: Sudo Access
-   echo "5. SUDO ACCESS" >> $REPORT_FILE
-   echo "==============" >> $REPORT_FILE
-   echo "Users with sudo access:" >> $REPORT_FILE
-   grep -E "^[^#].*\(ALL\)" /etc/sudoers 2>/dev/null | sed 's/^/  /' >> $REPORT_FILE || echo "  Cannot read /etc/sudoers" >> $REPORT_FILE
-   echo "" >> $REPORT_FILE
-   
-   # Section 6: Compliance Status
-   echo "6. COMPLIANCE CHECKLIST" >> $REPORT_FILE
-   echo "======================" >> $REPORT_FILE
-   echo "[ ] All user accounts documented" >> $REPORT_FILE
-   echo "[ ] Password policy enforced" >> $REPORT_FILE
-   echo "[ ] File permissions appropriate" >> $REPORT_FILE
-   echo "[ ] Sudo access restricted" >> $REPORT_FILE
-   echo "[ ] Logs monitored" >> $REPORT_FILE
-   echo "" >> $REPORT_FILE
-   
-   # Section 7: Recommendations
-   echo "7. RECOMMENDATIONS" >> $REPORT_FILE
-   echo "==================" >> $REPORT_FILE
-   echo "1. Review and document all user accounts" >> $REPORT_FILE
-   echo "2. Enforce strong password policy" >> $REPORT_FILE
-   echo "3. Restrict sudo access to necessary users" >> $REPORT_FILE
-   echo "4. Implement centralized logging" >> $REPORT_FILE
-   echo "5. Regular security audits" >> $REPORT_FILE
-   
-   # Display report
-   cat $REPORT_FILE
-   echo ""
-   echo "Report saved to: $REPORT_FILE"
-   
-   EOF
-   
-   chmod +x compliance_report_generator.sh
-   ./compliance_report_generator.sh
+   mkdir -p ~/grc-lab-week2/task4
+   cd ~/grc-lab-week2/task4
    ```
 
-2. Review the generated report
+2. Review the task requirements and objectives carefully
 
-3. Customize the script for your environment
+3. Follow the step-by-step procedures below:
 
-**Deliverable:** Compliance report generator script with sample output
+   **Step-by-Step Procedure:**
+   
+   a. Review framework documentation:
+   ```bash
+   cat ../../resources/framework_guides/[relevant_framework].md
+   ```
+   
+   b. Create framework mapping document:
+   ```bash
+   cat > framework_mapping.md << 'EOF'
+   # Framework Mapping - Task 4
+   
+   ## Framework Overview
+   [Name and describe the framework]
+   
+   ## Control Mapping
+   
+   | Control ID | Control Description | Implementation Status | Evidence | Gap |
+   |------------|---------------------|----------------------|----------|-----|
+   | [ID]       | [Description]       | [Status]             | [Evidence]| [Gap]|
+   
+   ## Gap Analysis Summary
+   [Summarize identified gaps]
+   
+   ## Recommendations
+   [List recommendations for addressing gaps]
+   EOF
+   ```
+   
+   c. Analyze framework requirements:
+   - Review each control or requirement
+   - Assess current implementation status
+   - Identify gaps and deficiencies
+   - Document evidence of compliance
+   
+   d. Perform gap analysis:
+   - Compare current state to framework requirements
+   - Prioritize gaps by risk and impact
+   - Estimate effort to close gaps
+   
+   e. Develop remediation roadmap:
+   - Create timeline for gap closure
+   - Assign responsibilities
+   - Estimate resources needed
+   
+   f. Document findings and recommendations
+   
 
-### Task 5: Lab Report and Documentation (Day 5)
+4. Document your findings and create deliverables
 
-**Objective:** Document all scripts and prepare comprehensive lab report.
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
+
+### Task 5: Script Documentation and Best Practices (Day 5)
+
+**Objective:** Document all scripts and implement best practices for production use
 
 **Instructions:**
 
-1. Create a script documentation file:
+1. Create a working directory for this task:
    ```bash
-   cat > SCRIPTS_DOCUMENTATION.txt << 'EOF'
-   BASH SCRIPTS FOR COMPLIANCE - DOCUMENTATION
-   ============================================
-   
-   1. system_info.sh
-   Purpose: Gather basic system information
-   Usage: ./system_info.sh
-   Output: Displays system information and creates system_info_report.txt
-   Key Features:
-   - Hostname and kernel information
-   - User account listing
-   - Disk usage report
-   
-   2. user_check.sh
-   Purpose: Check if a specific user exists
-   Usage: ./user_check.sh
-   Input: Username to check
-   Output: User exists/not exists with details
-   Key Features:
-   - Interactive user input
-   - Conditional logic (if/else)
-   - User account lookup
-   
-   3. password_policy_check.sh
-   Purpose: Verify password policy compliance
-   Usage: ./password_policy_check.sh
-   Output: password_policy_report.txt
-   Key Features:
-   - Checks password aging settings
-   - Identifies non-compliant accounts
-   - Generates compliance recommendations
-   
-   4. unauthorized_user_check.sh
-   Purpose: Detect unauthorized user accounts
-   Usage: ./unauthorized_user_check.sh
-   Output: unauthorized_users_report.txt
-   Key Features:
-   - Identifies non-system users
-   - Detects root privilege accounts
-   - Finds accounts with empty passwords
-   - Reviews sudo access
-   
-   5. compliance_report_generator.sh
-   Purpose: Generate comprehensive compliance report
-   Usage: ./compliance_report_generator.sh
-   Output: compliance_report_[timestamp].txt
-   Key Features:
-   - Multi-section report format
-   - System and user information
-   - Compliance checklist
-   - Recommendations
-   
-   BASH SCRIPTING CONCEPTS USED:
-   - Variables and variable expansion
-   - Command substitution
-   - Conditional statements (if/else)
-   - Loops (for loops)
-   - Text processing (grep, awk, cut)
-   - File I/O and redirection
-   - Functions and script organization
-   
-   EOF
-   
-   cat SCRIPTS_DOCUMENTATION.txt
+   mkdir -p ~/grc-lab-week2/task5
+   cd ~/grc-lab-week2/task5
    ```
 
-2. Create a testing summary:
+2. Review the task requirements and objectives carefully
+
+3. Follow the step-by-step procedures below:
+
+   **Step-by-Step Procedure:**
+   
+   a. Create a new script file:
    ```bash
-   cat > TEST_RESULTS.txt << 'EOF'
-   SCRIPT TESTING SUMMARY
-   ======================
-   
-   Script: system_info.sh
-   Test Date: $(date)
-   Status: PASSED
-   Notes: Successfully gathered system information
-   
-   Script: user_check.sh
-   Test Date: $(date)
-   Status: PASSED
-   Notes: Successfully checked user accounts
-   
-   Script: password_policy_check.sh
-   Test Date: $(date)
-   Status: PASSED
-   Notes: Successfully verified password policy
-   
-   Script: unauthorized_user_check.sh
-   Test Date: $(date)
-   Status: PASSED
-   Notes: Successfully identified user accounts
-   
-   Script: compliance_report_generator.sh
-   Test Date: $(date)
-   Status: PASSED
-   Notes: Successfully generated compliance report
-   
-   EOF
-   
-   cat TEST_RESULTS.txt
+   nano task5_script.sh
    ```
+   
+   b. Add the script header and shebang:
+   ```bash
+   #!/bin/bash
+   # Script: task5_script.sh
+   # Purpose: [Describe purpose]
+   # Author: [Your name]
+   # Date: $(date +%Y-%m-%d)
+   ```
+   
+   c. Implement the required functionality with proper error handling
+   
+   d. Make the script executable:
+   ```bash
+   chmod +x task5_script.sh
+   ```
+   
+   e. Test the script:
+   ```bash
+   ./task5_script.sh
+   ```
+   
+   f. Document the script with comments explaining each section
+   
+   g. Create a README explaining script usage:
+   ```bash
+   cat > README.md << 'EOF'
+   # Task 5 Script Documentation
+   
+   ## Purpose
+   [Describe what the script does]
+   
+   ## Usage
+   ```
+   ./task5_script.sh [options]
+   ```
+   
+   ## Requirements
+   - List any prerequisites
+   - Required permissions
+   - Dependencies
+   
+   ## Output
+   Describe expected output and where files are saved
+   EOF
+   ```
+   
 
-3. Prepare lab report with:
-   - Overview of scripts created
-   - Purpose and functionality of each script
-   - Code listings and explanations
-   - Sample output from each script
-   - Compliance findings and recommendations
-   - Lessons learned
+4. Document your findings and create deliverables
 
-**Deliverable:** Complete lab report with all scripts and documentation
+5. Review your work for completeness and accuracy
+
+**Deliverable:** Completed task documentation, analysis, and supporting files
 
 ## Assessment Criteria
 
@@ -503,70 +406,76 @@ Your lab will be assessed on:
 
 | Criterion | Weight | Description |
 |-----------|--------|-------------|
-| Script Functionality | 25% | Scripts work correctly and produce expected output |
-| Code Quality | 20% | Clean, well-commented, professional code |
-| Compliance Focus | 25% | Scripts address compliance requirements |
-| Documentation | 20% | Clear documentation and usage instructions |
-| Report Quality | 10% | Professional presentation and completeness |
+| Technical Accuracy | 25% | Correctness of technical work and analysis |
+| Completeness | 20% | All tasks completed with required deliverables |
+| Documentation Quality | 20% | Clear, professional documentation and reporting |
+| Critical Thinking | 20% | Depth of analysis and insights provided |
+| Professional Presentation | 15% | Organization, formatting, and clarity |
 
 ## Submission Requirements
 
 1. **Lab Report (PDF or Markdown)**
-   - Title and overview
-   - Script descriptions and purpose
-   - Code listings with explanations
-   - Sample output and analysis
-   - Compliance findings
+   - Title page with lab number, date, and name
+   - Executive summary
+   - Detailed findings for each task
+   - Screenshots and evidence
+   - Analysis and conclusions
    - Recommendations
 
 2. **Supporting Files**
-   - All 5 bash scripts (.sh files)
-   - Generated reports from script execution
-   - Documentation and testing summary
-   - Any additional supporting files
+   - All scripts, documents, and analysis files created
+   - Excel/CSV files with data analysis
+   - Any configuration files or templates developed
+   - Screenshots demonstrating task completion
 
 3. **File Organization**
-   - Folder: `Week_02_GRC101_[YourName]`
-   - Scripts in `scripts/` subdirectory
-   - Reports in `reports/` subdirectory
-   - Documentation in root directory
+   - Create submission folder: `Week_{lab['week']:02d}_{lab['course']}_[YourName]`
+   - Include all task directories
+   - Use professional naming conventions
+   - Include README with file descriptions
 
 ## Submission Deadline
 
-Friday, 11:59 PM (End of Week 2)
+Friday, 11:59 PM (End of Week {lab['week']})
 
 ## Resources
 
-- Bash Scripting Guide: https://www.gnu.org/software/bash/manual/
-- Linux System Administration: https://linux.die.net/
-- Compliance Automation: resources/scripts/
+- Course materials and framework documentation in resources/
+- Sample datasets in datasets/
+- Lab templates in templates/
+- Additional reading materials provided in course portal
 
 ## Common Issues and Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| Permission denied | Use `chmod +x script_name.sh` |
-| Command not found | Check script path, use `./script_name.sh` |
-| Cannot read /etc/shadow | Use `sudo` for system files |
-| Script syntax error | Check for typos, use `bash -x script_name.sh` for debugging |
+| Missing files or datasets | Check datasets/ directory, download if necessary |
+| Permission issues | Ensure proper file permissions, use sudo if required |
+| Software not installed | Install required packages using apt or pip |
+| Unclear requirements | Review task objectives, consult documentation |
 
 ## Tips for Success
 
-1. Test each script thoroughly before submission
-2. Add comments to explain complex sections
-3. Handle errors gracefully in scripts
-4. Generate sample output for documentation
-5. Review compliance implications of findings
-6. Present scripts professionally
+1. Read all task instructions before starting
+2. Take detailed notes as you work
+3. Document your thought process and decisions
+4. Create backups of your work regularly
+5. Test your work thoroughly before submission
+6. Review assessment criteria before finalizing
+7. Proofread all documentation
+8. Organize files logically
+9. Include all required deliverables
+10. Submit before the deadline
 
 ## Next Steps
 
 Upon completion of this lab:
 
 1. Review instructor feedback
-2. Prepare for Week 3: Understanding GRC Frameworks
-3. Think about how to integrate these scripts into compliance workflows
-4. Begin learning about GRC frameworks and standards
+2. Prepare for Week {lab['week'] + 1} lab
+3. Continue building your GRC knowledge
+4. Practice skills learned in this lab
+5. Connect concepts across different weeks
 
 ---
 
