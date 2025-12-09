@@ -1,0 +1,31 @@
+Dec  1 08:15:22 server01 kernel: [12345.678901] audit: type=1130 audit(1701417322.456:789): pid=1234 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-logind comm="systemd" exe="/lib/systemd/systemd-logind" hostname=? addr=? terminal=? res=success'
+Dec  1 08:15:45 server01 sshd[2345]: Accepted publickey for admin from 192.168.1.100 port 54321 ssh2: RSA SHA256:abcd1234efgh5678ijkl9012mnop3456qrst7890uvw
+Dec  1 08:16:12 server01 sudo: admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/usr/bin/apt-get update
+Dec  1 08:16:33 server01 kernel: [12346.123456] audit: type=1131 audit(1701417393.789:790): pid=3456 uid=1000 auid=1000 ses=2 msg='op=PAM:session_open grantors=pam_unix,pam_permit acct="user01" exe="/usr/sbin/sshd" hostname=192.168.1.50 addr=192.168.1.50 terminal=ssh res=success'
+Dec  1 08:17:01 server01 CRON[4567]: (root) CMD (cd / && run-parts --report /etc/cron.hourly)
+Dec  1 08:17:45 server01 sshd[5678]: Failed password for invalid user testuser from 203.0.113.45 port 54322 ssh2
+Dec  1 08:18:12 server01 sshd[5678]: Disconnected from 203.0.113.45 port 54322 [preauth]
+Dec  1 08:19:33 server01 sudo: user01 : TTY=pts/1 ; PWD=/home/user01 ; USER=root ; COMMAND=/bin/systemctl restart nginx
+Dec  1 08:20:01 server01 kernel: [12347.456789] audit: type=1300 audit(1701417601.234:791): arch=c000003e syscall=2 success=yes exit=3 a0=7ffd12345678 a1=0 a2=0 a3=0 items=1 ppid=6789 pid=6890 auid=1000 uid=1000 gid=1000 euid=1000 egid=1000 fsuid=1000 fsgid=1000 tty=pts/0 ses=2 comm="cat" exe="/bin/cat" key="sensitive_file"
+Dec  1 08:21:15 server01 sshd[7890]: Received disconnect from 192.168.1.100 port 54321 [preauth]
+Dec  1 08:22:45 server01 kernel: [12348.789012] audit: type=1400 audit(1701417765.567:792): apparmor="DENIED" operation="capable" profile="man_filter" pid=7901 comm="man" capability=36  capname="block_suspend"
+Dec  1 08:23:12 server01 sudo: admin : TTY=pts/2 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/passwd user02
+Dec  1 08:24:33 server01 sshd[8901]: Invalid user admin from 203.0.113.46 port 54323 ssh2
+Dec  1 08:25:01 server01 kernel: [12349.234567] audit: type=1130 audit(1701417901.890:793): pid=8912 uid=0 auid=4294967295 ses=4294967295 msg='unit=apache2 comm="systemd" exe="/lib/systemd/systemd-logind" hostname=? addr=? terminal=? res=success'
+Dec  1 08:26:45 server01 sshd[9012]: Failed password for user01 from 192.168.1.101 port 54324 ssh2
+Dec  1 08:27:12 server01 sshd[9012]: Failed password for user01 from 192.168.1.101 port 54324 ssh2
+Dec  1 08:28:33 server01 sshd[9012]: Received disconnect from 192.168.1.101 port 54324 [preauth]
+Dec  1 08:29:01 server01 sudo: COMMAND=/sbin/iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+Dec  1 08:30:15 server01 kernel: [12350.567890] audit: type=1131 audit(1701418215.123:794): pid=9123 uid=0 auid=0 ses=1 msg='op=PAM:session_open grantors=pam_unix,pam_permit acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=pts/3 res=success'
+Dec  1 08:31:45 server01 sshd[9234]: Accepted publickey for root from 192.168.1.102 port 54325 ssh2: RSA SHA256:efgh5678ijkl9012mnop3456qrst7890uvwxyz1234abcd
+Dec  1 08:32:12 server01 kernel: [12351.901234] audit: type=1400 audit(1701418332.456:795): apparmor="DENIED" operation="open" profile="/usr/sbin/cupsd" pid=9345 comm="cupsd" requested_mask="r" denied_mask="r" fsuid=0 ouid=0 name="/etc/shadow"
+Dec  1 08:33:33 server01 sudo: root : TTY=pts/3 ; PWD=/root ; USER=root ; COMMAND=/usr/bin/apt-get install curl
+Dec  1 08:34:01 server01 sshd[9456]: Disconnected from 192.168.1.102 port 54325
+Dec  1 08:35:45 server01 kernel: [12352.234567] audit: type=1300 audit(1701418545.789:796): arch=c000003e syscall=59 success=yes exit=0 a0=7ffd87654321 a1=7ffd87654320 a2=7ffd87654310 a3=0 items=2 ppid=9567 pid=9678 auid=1000 uid=1000 gid=1000 euid=1000 egid=1000 fsuid=1000 fsgid=1000 tty=pts/1 ses=2 comm="bash" exe="/bin/bash" key="shell_execution"
+Dec  1 08:36:12 server01 sshd[9789]: Failed password for invalid user admin from 203.0.113.47 port 54326 ssh2
+Dec  1 08:37:33 server01 sudo: user02 : TTY=pts/4 ; PWD=/home/user02 ; USER=root ; COMMAND=/usr/bin/systemctl status mysql
+Dec  1 08:38:01 server01 kernel: [12353.567890] audit: type=1130 audit(1701418681.012:797): pid=9890 uid=0 auid=4294967295 ses=4294967295 msg='unit=mysql comm="systemd" exe="/lib/systemd/systemd-logind" hostname=? addr=? terminal=? res=success'
+Dec  1 08:39:45 server01 sshd[9901]: Accepted password for user02 from 192.168.1.103 port 54327 ssh2
+Dec  1 08:40:12 server01 sudo: user02 : TTY=pts/5 ; PWD=/home/user02 ; USER=root ; COMMAND=/bin/cat /var/log/auth.log
+Dec  1 08:41:33 server01 kernel: [12354.901234] audit: type=1400 audit(1701418893.345:798): apparmor="DENIED" operation="capable" profile="/usr/sbin/ntpd" pid=10012 comm="ntpd" capability=36  capname="block_suspend"
+Dec  1 08:42:01 server01 sshd[10123]: Disconnected from 192.168.1.103 port 54327

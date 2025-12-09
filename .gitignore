@@ -1,0 +1,89 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+
+# Lab submission files (students should not commit)
+Week_*/
+*_submission/
+student_work/
+
+# Sensitive data
+*.key
+*.pem
+*.crt
+credentials.txt
+secrets.txt
+
+# Large files
+*.iso
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# Node modules (if using Node.js tools)
+node_modules/
+npm-debug.log
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+
