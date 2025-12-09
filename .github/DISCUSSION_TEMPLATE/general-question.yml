@@ -1,0 +1,46 @@
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for asking a question! Please provide as much detail as possible.
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      options:
+        - General Programme
+        - Technical Setup
+        - Lab Instructions
+        - Framework Understanding
+        - Career Guidance
+        - Other
+    validations:
+      required: true
+  
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: Please describe your question in detail
+    validations:
+      required: true
+  
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional information that might be helpful
+  
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before Asking
+      options:
+        - label: I have searched existing discussions
+          required: true
+        - label: I have checked the FAQ
+          required: true
+        - label: I have reviewed relevant documentation
+          required: true

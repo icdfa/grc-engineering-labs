@@ -1,0 +1,40 @@
+labels: [show-and-tell]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share your project, achievement, or learning experience with the community!
+  
+  - type: input
+    id: title
+    attributes:
+      label: Project/Achievement Title
+      description: Give your project or achievement a descriptive title
+    validations:
+      required: true
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Tell us about your project or achievement
+    validations:
+      required: true
+  
+  - type: textarea
+    id: learning
+    attributes:
+      label: What did you learn?
+      description: Share key learnings or insights
+  
+  - type: textarea
+    id: challenges
+    attributes:
+      label: Challenges Overcome
+      description: What challenges did you face and how did you overcome them?
+  
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resources Used
+      description: Share any helpful resources you used

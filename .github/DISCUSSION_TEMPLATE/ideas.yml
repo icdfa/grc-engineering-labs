@@ -1,0 +1,44 @@
+labels: [idea]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for improving the programme? We'd love to hear it!
+  
+  - type: input
+    id: title
+    attributes:
+      label: Idea Title
+      description: Brief title for your idea
+    validations:
+      required: true
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe your idea
+      description: Provide details about your suggestion
+    validations:
+      required: true
+  
+  - type: textarea
+    id: benefit
+    attributes:
+      label: How would this benefit students?
+      description: Explain the value this would provide
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - New Lab Content
+        - Improved Documentation
+        - Additional Resources
+        - Tool or Platform
+        - Assessment Method
+        - Other
+    validations:
+      required: true

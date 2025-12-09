@@ -1,0 +1,59 @@
+# GRC Engineering Labs - Docker Compose Configuration
+# 
+# Maintainer: Aminu Idris, AMCPN
+# Organization: ICDFA
+# Version: 1.0.0
+
+version: '3.8'
+
+services:
+  grc-labs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: icdfa/grc-labs:latest
+    container_name: grc-engineering-labs
+    hostname: grc-labs
+    
+    # Interactive terminal
+    stdin_open: true
+    tty: true
+    
+    # Mount lab materials
+    volumes:
+      - ./:/grc-labs
+      - grc-home:/home/grc
+    
+    # Network configuration
+    networks:
+      - grc-network
+    
+    # Environment variables
+    environment:
+      - TZ=UTC
+      - LANG=en_US.UTF-8
+      - LC_ALL=en_US.UTF-8
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 4G
+        reservations:
+          cpus: '1'
+          memory: 2G
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Working directory
+    working_dir: /grc-labs
+
+volumes:
+  grc-home:
+    driver: local
+
+networks:
+  grc-network:
+    driver: bridge

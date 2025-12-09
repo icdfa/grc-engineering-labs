@@ -1,0 +1,60 @@
+labels: [lab-help]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Need help with a lab? Please provide details so we can assist you effectively.
+  
+  - type: dropdown
+    id: lab-week
+    attributes:
+      label: Lab Week
+      options:
+        - Week 1-4 (GRC101)
+        - Week 5-9 (GRC102)
+        - Week 10-14 (GRC103)
+        - Week 15-18 (GRC104)
+        - Week 19-23 (GRC201)
+        - Week 24-26 (GRC202)
+        - Week 27-31 (GRC203)
+        - Week 32-35 (GRC204)
+        - Week 36-39 (GRC301)
+        - Week 40-43 (GRC302)
+        - Week 44-47 (GRC399 Capstone)
+    validations:
+      required: true
+  
+  - type: textarea
+    id: issue
+    attributes:
+      label: What are you stuck on?
+      description: Describe the specific issue you're facing
+    validations:
+      required: true
+  
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you tried?
+      description: List the steps you've already attempted
+    validations:
+      required: true
+  
+  - type: textarea
+    id: error
+    attributes:
+      label: Error Messages
+      description: Include any error messages you're seeing
+      render: shell
+  
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Troubleshooting Checklist
+      options:
+        - label: I have read the lab instructions completely
+          required: true
+        - label: I have checked TROUBLESHOOTING.md
+          required: true
+        - label: I have searched for similar issues
+          required: true
