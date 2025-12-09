@@ -303,6 +303,19 @@ This material is proprietary to ICDFA and provided for educational purposes only
 
 All datasets contain fictional data. No real organizations, individuals, or systems are represented.
 
+## Repository Maintainer
+
+**Aminu Idris, AMCPN**  
+Commandant, Lead Training & Quality Assurance  
+International Cybersecurity and Digital Forensics Academy (ICDFA)
+
+**Professional Certifications:**  
+CCNA | CompTIA Security+ | CEH | OSCP | CISSP | MPCSEAN
+
+**Role:** Cybersecurity Educator & Mentor
+
+Aminu Idris serves as the Commandant and Lead Training & Quality Assurance officer at ICDFA, overseeing the development and delivery of professional cybersecurity training programmes. With extensive industry certifications and practical experience, he ensures that all training materials meet the highest standards of quality and relevance to current industry practices.
+
 ## Contact
 
 For questions or support, contact the ICDFA GRC Engineering Programme team through the LMS or official channels.
