@@ -1,416 +1,157 @@
-# Lab 3: Risk & Compliance Basics
+# Lab 3: Risk Assessment and Compliance Fundamentals
 
 **Course:** GRC101 - Introduction to GRC & Technical Landscape  
 **Week:** 3  
-**Duration:** 5 days  
-**Level:** Beginner  
-**Prerequisites:** Lab 2 - Linux Scripting for Compliance
+**Duration:** 5 Days (Approx. 8-10 hours total)  
+**Level:** Beginner to Intermediate  
+**Prerequisites:** Basic proficiency with Microsoft Office Suite (Word and Excel).
 
-## Lab Overview
+## 1. Lab Overview
 
-This lab introduces fundamental risk management concepts and compliance principles. Participants will learn to identify, assess, and document risks using industry-standard methodologies.
+This laboratory exercise is designed to provide trainees with practical experience in the fundamental principles of **Information Security Risk Management**. Using a provided dataset, participants will execute a structured risk assessment process, including qualitative and quantitative analysis, risk prioritization, and the formulation of treatment strategies. The entire exercise will be conducted using standard business productivity tools (Microsoft Excel and Word), simulating a common corporate environment.
 
-## Learning Objectives
+## 2. Learning Objectives
 
-Upon completion of this lab, you will be able to:
+Upon successful completion of this lab, the trainee will be able to:
 
-- Understand risk management fundamentals and terminology
-- Identify and categorize organizational risks
-- Perform qualitative and quantitative risk assessments
-- Calculate risk scores and prioritize risks
-- Document risks in a professional risk register
+*   **Define** core risk management terminology, including Threat, Vulnerability, Impact, and Likelihood.
+*   **Perform** a qualitative risk assessment by calculating and interpreting risk scores using a standard risk matrix.
+*   **Conduct** a basic quantitative risk assessment by calculating the Annualized Loss Expectancy (ALE).
+*   **Prioritize** organizational risks based on calculated scores and business impact.
+*   **Formulate** and justify appropriate risk treatment strategies (Reduce, Transfer, Accept, Avoid).
+*   **Document** all findings in a professional Risk Register (Excel) and a formal Lab Report (Word).
 
-## Required Resources
+## 3. Required Resources
 
-- Linux system (Ubuntu 20.04 or later recommended)
-- Terminal/SSH access
-- Text editor (nano, vim, or VS Code)
-- Lab report template (provided)
-- Excel or LibreOffice Calc for data analysis
-- Access to framework documentation (provided in resources/)
-- Sample datasets (provided in datasets/)
+*   Windows Operating System
+*   Microsoft Word (or equivalent word processor)
+*   Microsoft Excel (or equivalent spreadsheet software)
+*   The provided Risk Dataset (Section 4).
 
-## Lab Tasks
+## 4. Risk Dataset
 
-### Task 1: Risk Identification and Classification (Day 1)
+The following data represents a snapshot of an organization's current risk landscape. This data must be copied into your Excel Risk Register for analysis.
 
-**Objective:** Identify various types of organizational risks and classify them by category
-
-**Instructions:**
-
-1. Create a working directory for this task:
-   ```bash
-   mkdir -p ~/grc-lab-week3/task1
-   cd ~/grc-lab-week3/task1
-   ```
-
-2. Review the task requirements and objectives carefully
-
-3. Follow the step-by-step procedures below:
-
-   **Step-by-Step Procedure:**
-   
-   a. Open the risk assessment template:
-   ```bash
-   cp ../../datasets/risk_assessment_data.xlsx ./risk_analysis.xlsx
-   # Or use LibreOffice: libreoffice --calc risk_analysis.xlsx
-   ```
-   
-   b. Identify and document risks:
-   - Review organizational scenarios
-   - Identify potential threats and vulnerabilities
-   - Document risk descriptions
-   
-   c. Assess risk likelihood and impact:
-   - Use provided likelihood scale (1-5)
-   - Use provided impact scale (1-5)
-   - Calculate risk scores (Likelihood × Impact)
-   
-   d. Prioritize risks:
-   - Rank risks by score
-   - Categorize as Critical, High, Medium, Low
-   - Document prioritization rationale
-   
-   e. Create risk register:
-   ```bash
-   cat > risk_register.md << 'EOF'
-   # Risk Register - Task 1
-   
-   | Risk ID | Risk Description | Likelihood | Impact | Score | Priority | Owner |
-   |---------|------------------|------------|--------|-------|----------|-------|
-   | R001    | [Description]    | [1-5]      | [1-5]  | [Score]| [Level] | [Name]|
-   
-   EOF
-   ```
-   
-   f. Analyze and document findings in your lab report
-   
-
-4. Document your findings and create deliverables
-
-5. Review your work for completeness and accuracy
-
-**Deliverable:** Completed task documentation, analysis, and supporting files
-
-### Task 2: Qualitative Risk Assessment (Day 2)
-
-**Objective:** Perform qualitative risk analysis using likelihood and impact matrices
-
-**Instructions:**
-
-1. Create a working directory for this task:
-   ```bash
-   mkdir -p ~/grc-lab-week3/task2
-   cd ~/grc-lab-week3/task2
-   ```
-
-2. Review the task requirements and objectives carefully
-
-3. Follow the step-by-step procedures below:
-
-   **Step-by-Step Procedure:**
-   
-   a. Open the risk assessment template:
-   ```bash
-   cp ../../datasets/risk_assessment_data.xlsx ./risk_analysis.xlsx
-   # Or use LibreOffice: libreoffice --calc risk_analysis.xlsx
-   ```
-   
-   b. Identify and document risks:
-   - Review organizational scenarios
-   - Identify potential threats and vulnerabilities
-   - Document risk descriptions
-   
-   c. Assess risk likelihood and impact:
-   - Use provided likelihood scale (1-5)
-   - Use provided impact scale (1-5)
-   - Calculate risk scores (Likelihood × Impact)
-   
-   d. Prioritize risks:
-   - Rank risks by score
-   - Categorize as Critical, High, Medium, Low
-   - Document prioritization rationale
-   
-   e. Create risk register:
-   ```bash
-   cat > risk_register.md << 'EOF'
-   # Risk Register - Task 2
-   
-   | Risk ID | Risk Description | Likelihood | Impact | Score | Priority | Owner |
-   |---------|------------------|------------|--------|-------|----------|-------|
-   | R001    | [Description]    | [1-5]      | [1-5]  | [Score]| [Level] | [Name]|
-   
-   EOF
-   ```
-   
-   f. Analyze and document findings in your lab report
-   
-
-4. Document your findings and create deliverables
-
-5. Review your work for completeness and accuracy
-
-**Deliverable:** Completed task documentation, analysis, and supporting files
-
-### Task 3: Quantitative Risk Assessment (Day 3)
-
-**Objective:** Calculate quantitative risk metrics including ALE and risk exposure
-
-**Instructions:**
-
-1. Create a working directory for this task:
-   ```bash
-   mkdir -p ~/grc-lab-week3/task3
-   cd ~/grc-lab-week3/task3
-   ```
-
-2. Review the task requirements and objectives carefully
-
-3. Follow the step-by-step procedures below:
-
-   **Step-by-Step Procedure:**
-   
-   a. Open the risk assessment template:
-   ```bash
-   cp ../../datasets/risk_assessment_data.xlsx ./risk_analysis.xlsx
-   # Or use LibreOffice: libreoffice --calc risk_analysis.xlsx
-   ```
-   
-   b. Identify and document risks:
-   - Review organizational scenarios
-   - Identify potential threats and vulnerabilities
-   - Document risk descriptions
-   
-   c. Assess risk likelihood and impact:
-   - Use provided likelihood scale (1-5)
-   - Use provided impact scale (1-5)
-   - Calculate risk scores (Likelihood × Impact)
-   
-   d. Prioritize risks:
-   - Rank risks by score
-   - Categorize as Critical, High, Medium, Low
-   - Document prioritization rationale
-   
-   e. Create risk register:
-   ```bash
-   cat > risk_register.md << 'EOF'
-   # Risk Register - Task 3
-   
-   | Risk ID | Risk Description | Likelihood | Impact | Score | Priority | Owner |
-   |---------|------------------|------------|--------|-------|----------|-------|
-   | R001    | [Description]    | [1-5]      | [1-5]  | [Score]| [Level] | [Name]|
-   
-   EOF
-   ```
-   
-   f. Analyze and document findings in your lab report
-   
-
-4. Document your findings and create deliverables
-
-5. Review your work for completeness and accuracy
-
-**Deliverable:** Completed task documentation, analysis, and supporting files
-
-### Task 4: Risk Register Development (Day 4)
-
-**Objective:** Create and maintain a comprehensive risk register
-
-**Instructions:**
-
-1. Create a working directory for this task:
-   ```bash
-   mkdir -p ~/grc-lab-week3/task4
-   cd ~/grc-lab-week3/task4
-   ```
-
-2. Review the task requirements and objectives carefully
-
-3. Follow the step-by-step procedures below:
-
-   **Step-by-Step Procedure:**
-   
-   a. Open the risk assessment template:
-   ```bash
-   cp ../../datasets/risk_assessment_data.xlsx ./risk_analysis.xlsx
-   # Or use LibreOffice: libreoffice --calc risk_analysis.xlsx
-   ```
-   
-   b. Identify and document risks:
-   - Review organizational scenarios
-   - Identify potential threats and vulnerabilities
-   - Document risk descriptions
-   
-   c. Assess risk likelihood and impact:
-   - Use provided likelihood scale (1-5)
-   - Use provided impact scale (1-5)
-   - Calculate risk scores (Likelihood × Impact)
-   
-   d. Prioritize risks:
-   - Rank risks by score
-   - Categorize as Critical, High, Medium, Low
-   - Document prioritization rationale
-   
-   e. Create risk register:
-   ```bash
-   cat > risk_register.md << 'EOF'
-   # Risk Register - Task 4
-   
-   | Risk ID | Risk Description | Likelihood | Impact | Score | Priority | Owner |
-   |---------|------------------|------------|--------|-------|----------|-------|
-   | R001    | [Description]    | [1-5]      | [1-5]  | [Score]| [Level] | [Name]|
-   
-   EOF
-   ```
-   
-   f. Analyze and document findings in your lab report
-   
-
-4. Document your findings and create deliverables
-
-5. Review your work for completeness and accuracy
-
-**Deliverable:** Completed task documentation, analysis, and supporting files
-
-### Task 5: Risk Treatment and Mitigation Planning (Day 5)
-
-**Objective:** Develop risk treatment plans and mitigation strategies
-
-**Instructions:**
-
-1. Create a working directory for this task:
-   ```bash
-   mkdir -p ~/grc-lab-week3/task5
-   cd ~/grc-lab-week3/task5
-   ```
-
-2. Review the task requirements and objectives carefully
-
-3. Follow the step-by-step procedures below:
-
-   **Step-by-Step Procedure:**
-   
-   a. Open the risk assessment template:
-   ```bash
-   cp ../../datasets/risk_assessment_data.xlsx ./risk_analysis.xlsx
-   # Or use LibreOffice: libreoffice --calc risk_analysis.xlsx
-   ```
-   
-   b. Identify and document risks:
-   - Review organizational scenarios
-   - Identify potential threats and vulnerabilities
-   - Document risk descriptions
-   
-   c. Assess risk likelihood and impact:
-   - Use provided likelihood scale (1-5)
-   - Use provided impact scale (1-5)
-   - Calculate risk scores (Likelihood × Impact)
-   
-   d. Prioritize risks:
-   - Rank risks by score
-   - Categorize as Critical, High, Medium, Low
-   - Document prioritization rationale
-   
-   e. Create risk register:
-   ```bash
-   cat > risk_register.md << 'EOF'
-   # Risk Register - Task 5
-   
-   | Risk ID | Risk Description | Likelihood | Impact | Score | Priority | Owner |
-   |---------|------------------|------------|--------|-------|----------|-------|
-   | R001    | [Description]    | [1-5]      | [1-5]  | [Score]| [Level] | [Name]|
-   
-   EOF
-   ```
-   
-   f. Analyze and document findings in your lab report
-   
-
-4. Document your findings and create deliverables
-
-5. Review your work for completeness and accuracy
-
-**Deliverable:** Completed task documentation, analysis, and supporting files
-
-## Assessment Criteria
-
-Your lab will be assessed on:
-
-| Criterion | Weight | Description |
-|-----------|--------|-------------|
-| Technical Accuracy | 25% | Correctness of technical work and analysis |
-| Completeness | 20% | All tasks completed with required deliverables |
-| Documentation Quality | 20% | Clear, professional documentation and reporting |
-| Critical Thinking | 20% | Depth of analysis and insights provided |
-| Professional Presentation | 15% | Organization, formatting, and clarity |
-
-## Submission Requirements
-
-1. **Lab Report (PDF or Markdown)**
-   - Title page with lab number, date, and name
-   - Executive summary
-   - Detailed findings for each task
-   - Screenshots and evidence
-   - Analysis and conclusions
-   - Recommendations
-
-2. **Supporting Files**
-   - All scripts, documents, and analysis files created
-   - Excel/CSV files with data analysis
-   - Any configuration files or templates developed
-   - Screenshots demonstrating task completion
-
-3. **File Organization**
-   - Create submission folder: `Week_{lab['week']:02d}_{lab['course']}_[YourName]`
-   - Include all task directories
-   - Use professional naming conventions
-   - Include README with file descriptions
-
-## Submission Deadline
-
-Friday, 11:59 PM (End of Week {lab['week']})
-
-## Resources
-
-- Course materials and framework documentation in resources/
-- Sample datasets in datasets/
-- Lab templates in templates/
-- Additional reading materials provided in course portal
-
-## Common Issues and Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| Missing files or datasets | Check datasets/ directory, download if necessary |
-| Permission issues | Ensure proper file permissions, use sudo if required |
-| Software not installed | Install required packages using apt or pip |
-| Unclear requirements | Review task objectives, consult documentation |
-
-## Tips for Success
-
-1. Read all task instructions before starting
-2. Take detailed notes as you work
-3. Document your thought process and decisions
-4. Create backups of your work regularly
-5. Test your work thoroughly before submission
-6. Review assessment criteria before finalizing
-7. Proofread all documentation
-8. Organize files logically
-9. Include all required deliverables
-10. Submit before the deadline
-
-## Next Steps
-
-Upon completion of this lab:
-
-1. Review instructor feedback
-2. Prepare for Week {lab['week'] + 1} lab
-3. Continue building your GRC knowledge
-4. Practice skills learned in this lab
-5. Connect concepts across different weeks
+| Risk ID | Risk Description | Asset Affected | Threat Category | Vulnerability | Probability (1-5) | Impact (1-5) | Risk Score | Financial Impact (SLE) | Current Controls | Treatment Strategy | Owner | Status |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| R001 | Ransomware Attack | Customer Database | Cyber Attack | Unpatched Systems | 3 | 4 | 12 | $5,000,000 | Backup, Antivirus | Reduce | IT Manager | Active |
+| R002 | Insider Threat | Financial Records | Internal | Excessive Access | 2 | 4 | 8 | $2,000,000 | Access Controls | Reduce | Security Manager | Active |
+| R003 | Phishing Attack | User Credentials | Social Engineering | User Awareness | 4 | 2 | 8 | $500,000 | Email Filter | Reduce | Security Manager | Active |
+| R004 | System Failure | Email System | Technical | Single Point of Failure | 3 | 3 | 9 | $1,000,000 | Redundancy | Reduce | IT Manager | Active |
+| R005 | Data Breach | Customer Data | Cyber Attack | Weak Encryption | 2 | 5 | 10 | $10,000,000 | Encryption | Reduce | CISO | Active |
+| R006 | Compliance Violation | All Systems | Regulatory | Lack of Controls | 2 | 3 | 6 | $500,000 | Policies | Reduce | Compliance Officer | Active |
+| R007 | Third-party Failure | Cloud Services | Vendor | Vendor Risk | 2 | 3 | 6 | $1,000,000 | SLA, Contracts | Transfer | Procurement | Active |
 
 ---
 
-**Lab Created:** December 2025  
-**Last Updated:** December 2025  
-**Version:** 1.0
+## 5. Standard Risk Matrix Reference
+
+The following matrix defines the qualitative prioritization scale used in this lab.
+
+| Score Range | Priority Level | Required Action |
+| :---: | :---: | :---: |
+| **12 - 25** | **Critical** | Immediate action required; executive-level visibility. |
+| **8 - 11** | **High** | Action required within 30-90 days; senior management review. |
+| **4 - 7** | **Medium** | Action required within 90-180 days; operational management review. |
+| **1 - 3** | **Low** | Monitor and review periodically; no immediate action required. |
+
+---
+
+## 6. Lab Tasks (Step-by-Step Procedure)
+
+### Task 0: Environment Setup and Documentation
+
+1.  **Create Project Folder:** On your desktop, create a new folder named `GRC_Lab_Week3_[YourName]`.
+2.  **Initialize Risk Register (Excel):**
+    *   Open **Microsoft Excel** and create a new blank workbook.
+    *   Copy the entire Risk Dataset (Section 4) and paste it into the first sheet, starting at cell A1.
+    *   Save the file as `Risk_Register_Analysis.xlsx` inside your project folder.
+3.  **Initialize Lab Report (Word):**
+    *   Open **Microsoft Word** and create a new document.
+    *   Include a professional title page with the Lab Name, Course, Date, and your Name.
+    *   Save the file as `Lab_Report_Week3.docx` inside your project folder.
+
+### Task 1: Qualitative Risk Assessment and Prioritization
+
+**Objective:** Verify the initial risk scores and apply the standard risk matrix to assign a formal Priority Level.
+
+1.  **Verify Risk Score Calculation:**
+    *   In your `Risk_Register_Analysis.xlsx`, ensure the **Risk Score** column is calculated using the formula: **Risk Score = Probability (Likelihood) × Impact**.
+    *   In the first data row (e.g., cell H2), enter the formula to multiply the corresponding cells (e.g., `=F2*G2`). Apply this formula to all rows.
+2.  **Assign Priority Level:**
+    *   Add a new column next to **Risk Score** titled **Priority Level**.
+    *   Using the **Standard Risk Matrix Reference** (Section 5), manually or using an Excel `IF` function, assign the appropriate Priority Level (Critical, High, Medium, Low) to each risk based on its calculated Risk Score.
+3.  **Document Findings (Word):**
+    *   In your `Lab_Report_Week3.docx`, create a section titled **Task 1: Qualitative Risk Assessment**.
+    *   **Analysis:** Discuss the relationship between Likelihood, Impact, and the resulting Risk Score.
+    *   **Prioritization:** Identify the **top three Critical/High risks** and justify their prioritization based on the matrix and the nature of the risk (e.g., high financial impact, regulatory exposure).
+    *   **Evidence:** Insert a clear **screenshot** of your Excel sheet showing the Risk ID, Probability, Impact, Risk Score, and the newly assigned Priority Level columns.
+
+### Task 2: Quantitative Risk Assessment (ALE)
+
+**Objective:** Calculate the Annualized Loss Expectancy (ALE) to quantify the financial exposure of each risk.
+
+1.  **Define and Add ARO:**
+    *   **Annual Rate of Occurrence (ARO)** is the estimated frequency of a risk event occurring per year.
+    *   Insert a new column in your Excel sheet titled **ARO**.
+    *   Enter the following assumed ARO values for each risk:
+        *   R001: 0.2 (Once every 5 years)
+        *   R002: 0.5 (Once every 2 years)
+        *   R003: 1.0 (Once per year)
+        *   R004: 0.25 (Once every 4 years)
+        *   R005: 0.1 (Once every 10 years)
+        *   R006: 0.5 (Once every 2 years)
+        *   R007: 0.2 (Once every 5 years)
+2.  **Calculate ALE:**
+    *   **Single Loss Expectancy (SLE)** is the financial impact of a single risk event, which is provided in the **Financial Impact** column.
+    *   **Annualized Loss Expectancy (ALE)** is the expected monetary loss for an asset due to a risk over a one-year period.
+    *   Add a new column titled **ALE**.
+    *   Calculate ALE using the formula: **ALE = SLE × ARO**.
+    *   In the first data row, enter the formula to multiply the corresponding **Financial Impact (SLE)** and **ARO** cells. Apply this formula to all rows.
+3.  **Document Findings (Word):**
+    *   In your `Lab_Report_Week3.docx`, create a section titled **Task 2: Quantitative Risk Assessment (ALE)**.
+    *   **Definitions:** Provide a formal definition for SLE, ARO, and ALE.
+    *   **Analysis:** Identify the risk with the **highest ALE**. Explain what this value means to the organization in terms of financial planning and budget allocation for security controls.
+    *   **Evidence:** Insert a clear **screenshot** of your Excel sheet showing the Risk ID, Financial Impact (SLE), ARO, and the calculated ALE columns.
+
+### Task 3: Risk Treatment Strategy Analysis
+
+**Objective:** Analyze the effectiveness of current controls and evaluate the appropriateness of the proposed treatment strategies.
+
+1.  **Analyze Treatment Rationale:**
+    *   Review the four main risk treatment options: **Reduce** (mitigate), **Transfer** (share/insure), **Accept** (tolerate), and **Avoid** (eliminate).
+    *   Add a new column in your Excel sheet titled **Treatment Rationale**.
+    *   For each risk, write a brief rationale (1-2 sentences) in this new column, justifying whether the proposed **Treatment Strategy** is appropriate given the **Current Controls** and the risk's **Priority Level**.
+        *   *Example Rationale for R001 (Reduce):* "The strategy is appropriate as Backup and Antivirus are direct mitigating controls that reduce the likelihood and impact of a ransomware event."
+        *   *Example Rationale for R007 (Transfer):* "The strategy is appropriate as SLAs and contracts legally transfer some of the financial and operational risk to the third-party vendor."
+2.  **Propose Alternative Strategy:**
+    *   Identify **one risk** where you believe the current **Treatment Strategy** is **insufficient** or **incorrect** based on your analysis.
+    *   Add a final column titled **Proposed Alternative Strategy**.
+    *   For the identified risk, propose a different treatment strategy (e.g., change from Reduce to Accept, or vice-versa) and briefly justify your choice.
+3.  **Document Findings (Word):**
+    *   In your `Lab_Report_Week3.docx`, create a section titled **Task 3: Risk Treatment Strategy Analysis**.
+    *   **Evaluation:** Discuss the relationship between **Current Controls** and the **Treatment Strategy**.
+    *   **Recommendation:** Detail your proposed alternative strategy from step 2, providing a clear justification for why your alternative is superior to the current plan.
+    *   **Evidence:** Insert a clear **screenshot** of your Excel sheet showing the Risk ID, Current Controls, Treatment Strategy, Treatment Rationale, and Proposed Alternative Strategy columns.
+
+---
+
+## 7. Assessment Criteria
+
+Your submission will be assessed based on the following criteria:
+
+| Criterion | Weight | Description |
+| :---: | :---: | :---: |
+| **Technical Accuracy** | 30% | Correct calculation of Risk Scores and ALE; accurate application of the Risk Matrix. |
+| **Analysis and Justification** | 35% | Depth of analysis in the Word report, clarity of rationale for treatment strategies, and justification for the proposed alternative. |
+| **Documentation Quality** | 25% | Professional formatting of the Word report, clear and correctly labeled screenshots, and logical organization of the Excel Risk Register. |
+| **Completeness** | 10% | All tasks and required deliverables are present and complete. |
+
+## 8. Submission Requirements
+
+1.  **Lab Report (`Lab_Report_Week3.docx`):** The final professional Word document containing the title page, all three task sections, and all required analysis and screenshots.
+2.  **Risk Register (`Risk_Register_Analysis.xlsx`):** The completed Excel file with all new columns (Priority Level, ARO, ALE, Treatment Rationale, Proposed Alternative Strategy).
+3.  **File Organization:** Both files must be saved within the single project folder: `GRC_Lab_Week3_[YourName]`.
+4.  **Final Submission:** Compress the entire project folder into a single ZIP file for submission.
+
+**End of Lab Instructions**
