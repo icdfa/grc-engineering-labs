@@ -1,4 +1,4 @@
-# Lab 4: Applied Compliance Frameworks & Research (Comprehensive Guide)
+# Lab 4: Applied Compliance Frameworks & Research
 
 **Course:** GRC101 - Introduction to GRC & Technical Landscape
 **Week:** 4
