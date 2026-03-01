@@ -289,16 +289,16 @@ Review the "Current JML Workflow Diagram" which highlights the current manual an
 
 ```mermaid
 graph TD
-    A[New Hire Notification (HR)] --> B{Manual Account Creation (IT)};
-    B --> C{Manual Access Granting (IT/Manager)};
-    C --> D[New Employee Starts];
+    A[New Hire Notification - HR] --> B[Manual Account Creation - IT]
+    B --> C[Manual Access Granting - IT/Manager]
+    C --> D[New Employee Starts]
 
-    E[Employee Transfers (HR)] --> F{Manual Access Review (Manager)};
-    F --> G{Manual Access Changes (IT)};
+    E[Employee Transfers - HR] --> F[Manual Access Review - Manager]
+    F --> G[Manual Access Changes - IT]
 
-    H[Employee Termination (HR)] --> I{Manual Account Disablement (IT)};
-    I --> J{Manual Access Revocation (IT)};
-    J --> K[Audit Log Review (Security - Infrequent)];
+    H[Employee Termination - HR] --> I[Manual Account Disablement - IT]
+    I --> J[Manual Access Revocation - IT]
+    J --> K[Audit Log Review - Security - Infrequent]
 
     style B fill:#f9f,stroke:#333,stroke-width:2px
     style C fill:#f9f,stroke:#333,stroke-width:2px
@@ -308,10 +308,10 @@ graph TD
     style J fill:#f9f,stroke:#333,stroke-width:2px
     style K fill:#f9f,stroke:#333,stroke-width:2px
 
-    subgraph Current State (Manual & Error-Prone)
-        B -- X Lack of Automation --> C
-        F -- X Delays & Inconsistencies --> G
-        I -- X Risk of Orphaned Accounts --> J
+    subgraph Current State - Manual and Error-Prone
+        B -- Lack of Automation --> C
+        F -- Delays and Inconsistencies --> G
+        I -- Risk of Orphaned Accounts --> J
     end
 ```
 
