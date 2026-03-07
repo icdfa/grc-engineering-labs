@@ -29,7 +29,7 @@ Foundational knowledge in governance, risk management, compliance frameworks, an
 #### GRC102 - Information Security Governance (5 Weeks)
 
 - **[Week 5: Policy Development Lab](phase1/grc102/week5/LAB_INSTRUCTIONS.md)** - Create comprehensive security policies
-- **[Week 6: Governance Roles Mapping](phase1/grc102/week6/LAB_INSTRUCTIONS.md)** - Define governance structures and responsibilities
+- **[Week 6: Developing Security Policies and Procedures](phase1/grc102/week6/LAB_INSTRUCTIONS.md)** - Creating Effective Security Governance Documents
 - **[Week 7: Security Control Monitoring](phase1/grc102/week7/LAB_INSTRUCTIONS.md)** - Implement control monitoring systems
 - **[Week 8: Internal Audit Simulation](phase1/grc102/week8/LAB_INSTRUCTIONS.md)** - Conduct internal compliance audits
 - **[Week 9: Governance Case Study](phase1/grc102/week9/LAB_INSTRUCTIONS.md)** - Apply governance principles to real scenarios
