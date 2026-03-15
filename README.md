@@ -30,9 +30,10 @@ Foundational knowledge in governance, risk management, compliance frameworks, an
 
 - **[Week 5: Policy Development Lab](phase1/grc102/week5/LAB_INSTRUCTIONS.md)** - Create comprehensive security policies
 - **[Week 6: Developing Security Policies and Procedures](phase1/grc102/week6/LAB_INSTRUCTIONS.md)** - Creating Effective Security Governance Documents
-- **[Week 7: Security Control Monitoring](phase1/grc102/week7/LAB_INSTRUCTIONS.md)** - Implement control monitoring systems
-- **[Week 8: Internal Audit Simulation](phase1/grc102/week8/LAB_INSTRUCTIONS.md)** - Conduct internal compliance audits
-- **[Week 9: Governance Case Study](phase1/grc102/week9/LAB_INSTRUCTIONS.md)** - Apply governance principles to real scenarios
+- **[Week 7: Roles and Responsibilities in Security Governance](phase1/grc102/week7/LAB_INSTRUCTIONS.md)** - Roles and Responsibilities in Security Governance
+- **[Week 8: Security Control Monitoring](phase1/grc102/week7/LAB_INSTRUCTIONS.md)** - Implement control monitoring systems
+- **[Week 9: Internal Audit Simulation](phase1/grc102/week8/LAB_INSTRUCTIONS.md)** - Conduct internal compliance audits
+- **[Week 10: Governance Case Study](phase1/grc102/week9/LAB_INSTRUCTIONS.md)** - Apply governance principles to real scenarios
 
 #### GRC103 - Risk Assessment & Management (5 Weeks)
 
