@@ -37,7 +37,7 @@ Foundational knowledge in governance, risk management, compliance frameworks, an
 
 #### GRC103 - Risk Assessment & Management (5 Weeks)
 
-- **[Week 10: Threat Modelling Lab](phase1/grc103/week10/LAB_INSTRUCTIONS.md)** - Identify and analyze organizational threats
+- **[Week 10: Practical Vulnerability Assessment](phase1/grc103/week10/LAB_INSTRUCTIONS.md)** - Identify and analyze organizational threats
 - **[Week 11: Quantitative Risk Calculation](phase1/grc103/week11/LAB_INSTRUCTIONS.md)** - Calculate ALE, SLE, and ARO
 - **[Week 12: Qualitative Risk Workshop](phase1/grc103/week12/LAB_INSTRUCTIONS.md)** - Perform qualitative risk assessments
 - **[Week 13: Risk Treatment Strategy](phase1/grc103/week13/LAB_INSTRUCTIONS.md)** - Develop risk mitigation strategies
